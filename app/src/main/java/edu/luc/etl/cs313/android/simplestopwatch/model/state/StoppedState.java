@@ -11,25 +11,12 @@ class StoppedState implements StopwatchState {
     private final StopwatchSMStateView sm;
 
     @Override
-    public void onStartStop() {
-        sm.actionStart();
-        sm.toRunningState();
-    }
-
-    @Override
-    public void onLapReset() {
-        sm.actionReset();
-        sm.toStoppedState();
-    }
-
-    @Override
-    public void onTick() {
-        throw new UnsupportedOperationException("onTick");
-    }
-
-    @Override
-    public void updateView() {
+    public void onIncrement() {
         sm.updateUIRuntime();
+        sm.getValue();
+        //if equals 99, beep() and go to running state;
+        // else get current time and if 3 seconds go by, go to running state;
+        sm.buttonChgToCancel();
     }
 
     @Override
