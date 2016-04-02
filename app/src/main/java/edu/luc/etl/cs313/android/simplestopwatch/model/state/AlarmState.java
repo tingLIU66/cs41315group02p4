@@ -2,13 +2,13 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
-class AlarmState implements StopwatchState {
+class AlarmState implements SimpleTimerState {
 
-    public AlarmStateState(final StopwatchSMStateView sm) {
+    public AlarmStateState(final SimpleTimerSMStateView sm) {
         this.sm = sm;
     }
 
-    private final StopwatchSMStateView sm;
+    private final SimpleTimerSMStateView sm;
 
     @Override
     public void onStop() {
@@ -29,6 +29,6 @@ class AlarmState implements StopwatchState {
 
     @Override
     public int getId() {
-        return "Alarm";
+        return R.string.ALARM;
     }
 }

@@ -2,13 +2,13 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
-class RunningState implements StopwatchState {
+class RunningState implements SimpleTimerState {
 
-    public RunningState(final StopwatchSMStateView sm) {
+    public RunningState(final SimpleTimerSMStateView sm) {
         this.sm = sm;
     }
 
-    private final StopwatchSMStateView sm;
+    private final SimpleTimerSMStateView sm;
 
     @Override
     public void actionStart();
@@ -40,6 +40,6 @@ class RunningState implements StopwatchState {
 
     @Override
     public int getId() {
-        return "Running";
+        return R.string.RUNNING;
     }
 }
