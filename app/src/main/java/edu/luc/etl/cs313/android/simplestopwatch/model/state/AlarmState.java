@@ -4,7 +4,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.R;
 
 class AlarmState implements SimpleTimerState {
 
-    public AlarmStateState(final SimpleTimerSMStateView sm) {
+    public AlarmState(final SimpleTimerSMStateView sm) {
         this.sm = sm;
     }
 
@@ -13,7 +13,7 @@ class AlarmState implements SimpleTimerState {
     @Override
     public void onStop() {
         sm.stopBeeping();
-        sm.buttonChgToInc();
+        sm.updateButtonName();
         sm.toStoppedState();
     }
 
@@ -23,8 +23,13 @@ class AlarmState implements SimpleTimerState {
     }
 
     @Override
-    public void actionUpdateView() {
-        sm.updateUILaptime();
+    public void onTick() {
+        throw new UnsupportedOperationException("onTick");
+    }
+
+    @Override
+    public void updateView() {
+        sm.updateUIRuntime();
     }
 
     @Override
@@ -32,3 +37,7 @@ class AlarmState implements SimpleTimerState {
         return R.string.ALARM;
     }
 }
+    @Override
+    public void onIncrement(){}
+    public void onCancel(){}
+    //public void onStop(){}

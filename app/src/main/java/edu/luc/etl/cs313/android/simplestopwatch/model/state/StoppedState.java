@@ -16,7 +16,11 @@ class StoppedState implements SimpleTimerState {
         sm.getValue();
         //if equals 99, beep() and go to running state;
         // else get current time and if 3 seconds go by, go to running state;
-        sm.buttonChgToCancel();
+        sm.updateButtonName();
+    }
+    @Override
+    public void onTick() {
+        throw new UnsupportedOperationException("onTick");
     }
 
     @Override
@@ -24,5 +28,18 @@ class StoppedState implements SimpleTimerState {
         return R.string.STOPPED;
     }
 
+    @Override
+    public void updateView() {
+        sm.updateUIRuntime();
+    }
 
+
+    //@Override
+    //public void onIncrement(){}
+
+     @Override
+     public void onCancel(){}  //do nothing
+
+    @Override
+    public void onStop(){}       //do nothing
 }

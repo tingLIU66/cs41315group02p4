@@ -11,7 +11,7 @@ class RunningState implements SimpleTimerState {
     private final SimpleTimerSMStateView sm;
 
     @Override
-    public void actionStart();
+    public void actionStart(){};
 
     @Override
     public void onTick() {
@@ -29,12 +29,12 @@ class RunningState implements SimpleTimerState {
     public void onTimeUp() {
         sm.actionStop();
         sm.beep();
-        sm.buttonChgToStop();
+        sm.updateButtonName();
         sm.toAlarmState();
     }
 
     @Override
-    public void actionUpdateView() {
+    public void updateView() {
         sm.updateUIRuntime();
     }
 
@@ -42,4 +42,15 @@ class RunningState implements SimpleTimerState {
     public int getId() {
         return R.string.RUNNING;
     }
+
+    @Override
+    public void onIncrement(){}
+
+    // @Override
+    // public void onCancel(){}
+
+    @Override
+    public void onStop(){}
+
 }
+
