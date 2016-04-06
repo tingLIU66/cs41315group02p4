@@ -12,14 +12,10 @@ class AlarmState implements SimpleTimerState {
 
     @Override
     public void onStop() {
-        sm.stopBeeping();
+        sm.actionStopBeepg();
+        sm.actionReset();
         sm.updateButtonName();
         sm.toStoppedState();
-    }
-
-    @Override
-    public void onBeep() {
-        sm.beep();
     }
 
     @Override
@@ -36,8 +32,17 @@ class AlarmState implements SimpleTimerState {
     public int getId() {
         return R.string.ALARM;
     }
-}
+
     @Override
-    public void onIncrement(){}
-    public void onCancel(){}
+    public void onIncrement() {
+    }
+    public void onCancel() {
+    }
     //public void onStop(){}
+    @Override
+    public int getValue()
+    {
+        return 0; //return sm.getValue();
+    }
+
+}

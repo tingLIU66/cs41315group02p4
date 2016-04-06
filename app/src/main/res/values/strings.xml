@@ -14,5 +14,6 @@
     <string name="STOPPED">Stopped</string>
     <string name="RUNNING">Running</string>
     <string name="ALARM">ALARM</string>
+    <string name="SETTIME">SETTIME</string>
 
 </resources>

@@ -12,11 +12,8 @@ class StoppedState implements SimpleTimerState {
 
     @Override
     public void onIncrement() {
-        sm.updateUIRuntime();
-        sm.getValue();
-        //if equals 99, beep() and go to running state;
-        // else get current time and if 3 seconds go by, go to running state;
-        sm.updateButtonName();
+        sm.toIncrementState();
+       // sm.updateButtonName();
     }
     @Override
     public void onTick() {
@@ -29,8 +26,14 @@ class StoppedState implements SimpleTimerState {
     }
 
     @Override
+    public int getValue()
+    {
+        return 0; //return sm.getValue();
+    }
+
+    @Override
     public void updateView() {
-        sm.updateUIRuntime();
+            sm.updateUIRuntime();
     }
 
 
